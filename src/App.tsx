@@ -16,6 +16,11 @@ function App() {
         age : 25,
         address : "Panadura",
     }
+    //array
+    const fruits :string[] =["Apple", "Banana", "Orange"];
+    const handleClick = () :void => {
+        alert("button clicked");
+    };
     return (
         <>
             <h1 className="heading">React</h1>
@@ -25,6 +30,11 @@ function App() {
             <h3>Name : {person.name}</h3>
             <h3>Age : {person.age}</h3>
             <h3>Address : {person.address}</h3>
+            <h2>{fruits.map((fruit, index) => (
+                <li key={index}>{fruit}</li>
+            ))}</h2>
+
+            <button onClick={handleClick}> Click Me</button>
         </>
     )
 }
