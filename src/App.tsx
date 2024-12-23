@@ -1,18 +1,21 @@
 import './App.css'
-import Component from "./Component/Component.tsx";
-import TextBox from "./Component/TextBox.tsx";
+import {useState} from "react";
 
 
 function App() {
+    // Declare state variable "count" and set its initial value to 0
+    const [count, setCount] = useState(0);
+
+    // Function to increase the count
+    const increaseCount = () => {
+        setCount(count + 1); // Update state
+    };
 
     return (
         <>
-            <Component/> {/*use componnent*/}
-            <TextBox name="Dinelka" id="S001" address="Panadura">
-                <p>This is a Discription</p>
-            </TextBox>
-            <TextBox name="Lakshan" id="S002" address="Galee"/>
-            <TextBox name="Perera" id="S003" address="Colombo"/>
+            <h1>My Counter App</h1>
+            <button onClick={increaseCount}>Increment</button>
+            <h2>Count: {count}</h2>
 
         </>
     )
