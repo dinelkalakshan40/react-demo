@@ -1,6 +1,8 @@
+import "./Component.css";
+
 function Component(){
     return(
-        <div>Hello</div>
+        <div className="component">Hello</div>
     )
 }
 
