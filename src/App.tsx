@@ -1,31 +1,23 @@
-import './App.css'
-import {useEffect, useState} from "react";
-
+import {BrowserRouter, Route, Routes} from "react-router";
+import {HomePage} from "./pages/HomePage.tsx";
+import {AboutPage} from "./pages/AboutPage.tsx";
+import {ContactPage} from "./pages/ContactPage.tsx";
 
 
 function App() {
 
-    const [count,setCount] =useState(0);
-
-    const increment  =() =>{
-        setCount(count+1)
-    };
-    const decrement =() =>{
-        setCount(count-1)
-    };
-    useEffect( () =>{
-        console.log(`New count is :${count}`)
-        },[count]
-    )
 
     return (
-        <>
-            <h1>Count :{count}</h1>
-            <button onClick={increment}>Increment</button>
-            <button onClick={decrement}>decrement</button>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<HomePage/>}></Route>
+                <Route path="/about" element={<AboutPage/>}></Route>
+                <Route path="/contact" element={<ContactPage/>}></Route>
 
-        </>
-    )
+            </Routes>
+        </BrowserRouter>
+
+    );
 }
 
-export default App
+export default App;
