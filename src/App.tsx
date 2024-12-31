@@ -1,31 +1,23 @@
-import {useRef} from "react";
+import {createContext, useState} from "react";
+import Component1 from "./Component/useContext/Component1.tsx";
 
+
+export const myName = createContext({})
 
 function App() {
 
-    // Define the ref with type HTMLInputElement or null
-    const inputRef = useRef<HTMLInputElement | null>(null);
 
-    const handleClick = () => {
-        // Check if the ref is not null
-        if (inputRef.current) {
-            const value = inputRef.current.value;
-
-            if (value === "") {
-                inputRef.current.focus();
-            } else if (Number(value) > 50) {
-                alert("Success");
-            } else {
-                alert("Error");
-            }
-        }
-    };
+    const [userName,setUserName] =useState("")
 
     return (
-        <>
-            <input type="text" ref={inputRef} placeholder="Enter a number"/>
-            <button onClick={handleClick}>Validate</button>
-        </>
+        <myName.Provider value={{ userName, setUserName }}>
+            <div>
+                <h1>Welcome to the App</h1>
+                <p>Current User Name: {userName}</p>
+                {/* Render the first component */}
+                <Component1 />
+            </div>
+        </myName.Provider>
     );
 }
 
