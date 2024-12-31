@@ -57,3 +57,16 @@
     border: 1px solid #ddd;
     border-radius: 4px;
 }
+
+.buttonStyle {
+    margin: 5px;
+    padding: 10px 20px;
+    fontSize: 16px;
+    border-radius: 7px;
+    cursor: pointer;
+    background: #6a8dba;
+    color: #ffffff;
+    border: none;
+    borderRadius: 5px;
+}
+
