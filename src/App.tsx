@@ -1,18 +1,22 @@
 import './App.css'
 import {useDispatch, useSelector} from "react-redux";
+import {useState} from "react";
 
 function App() {
 
-    const count = useSelector(state => state);
+    const customer = useSelector(state => state.customer)
     const dispatch = useDispatch();
 
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
     return (
         <>
-            {count}
+            <input type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} />
+            <input type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/> <br/>
+            <button onClick={() => dispatch({ type:'ADD_CUSTOMER',payload:name})}>Add Name</button>
+            <button onClick={() => dispatch({ type:'ADD_CUSTOMER',payload:email})}>Add Email</button>
             <br/>
-            <button className="buttonStyle" onClick={() => dispatch({ type:'INCREMENT'})}>Increment</button>
-            <button className="buttonStyle" onClick={() => dispatch({ type:'DECREMENT'})}>Decrement</button>
-            <button className="buttonStyle" onClick={() => dispatch({ type:''})}>Select</button>
+            {customer}
         </>
     )
 }

@@ -1,5 +1,8 @@
-import {createStore} from "redux";
-import {CountReducer} from "../Reducers/CountReducer.tsx";
+import {combineReducers, createStore} from "redux";
+import {CustomerReducer} from "../Reducers/CustomerReducer.tsx";
 
 
-export const store = createStore(CountReducer);
+const rootReducer = combineReducers({
+    customer : CustomerReducer
+})
+export const store = createStore(rootReducer);
