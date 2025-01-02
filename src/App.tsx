@@ -1,22 +1,17 @@
 import './App.css'
 import {useDispatch, useSelector} from "react-redux";
-import {useState} from "react";
+import {decrement, increment} from "./Reducers/CustomersSlice.ts";
 
 function App() {
 
-    const customer = useSelector(state => state.customer)
+    const count = useSelector(state => state.counter.count);
     const dispatch = useDispatch();
 
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
     return (
         <>
-            <input type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} />
-            <input type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/> <br/>
-            <button onClick={() => dispatch({ type:'ADD_CUSTOMER',payload:name})}>Add Name</button>
-            <button onClick={() => dispatch({ type:'ADD_CUSTOMER',payload:email})}>Add Email</button>
-            <br/>
-            {customer}
+            {count} <br/>
+            <button onClick={() => dispatch(increment())}>Increment</button>
+            <button onClick={() => dispatch(decrement())}>Decrement</button>
         </>
     )
 }

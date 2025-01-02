@@ -1,8 +1,8 @@
-import {combineReducers, createStore} from "redux";
-import {CustomerReducer} from "../Reducers/CustomerReducer.tsx";
+import {configureStore} from "@reduxjs/toolkit";
+import CounterSlice from "../Reducers/CustomersSlice"
 
-
-const rootReducer = combineReducers({
-    customer : CustomerReducer
+export const store=configureStore({
+    reducer:{
+        counter:CounterSlice
+    }
 })
-export const store = createStore(rootReducer);
