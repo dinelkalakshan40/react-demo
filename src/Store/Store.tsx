@@ -1,8 +1,8 @@
 import {configureStore} from "@reduxjs/toolkit";
-import CounterSlice from "../Reducers/CustomersSlice"
+import ChangeNameSlice from "../Reducers/CustomerSlice.ts"
 
-export const store=configureStore({
-    reducer:{
-        counter:CounterSlice
+export const store = configureStore({
+    reducer: {
+        changeName: ChangeNameSlice
     }
 })

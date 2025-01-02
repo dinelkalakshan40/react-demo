@@ -1,17 +1,19 @@
 import './App.css'
 import {useDispatch, useSelector} from "react-redux";
-import {decrement, increment} from "./Reducers/CustomersSlice.ts";
+import {changeName} from "./Reducers/CustomerSlice.ts";
+
 
 function App() {
 
-    const count = useSelector(state => state.counter.count);
+    const name = useSelector(state => state.changeName.value);
     const dispatch = useDispatch();
 
     return (
         <>
-            {count} <br/>
-            <button onClick={() => dispatch(increment())}>Increment</button>
-            <button onClick={() => dispatch(decrement())}>Decrement</button>
+            <input className="input-field" type="text" onChange={(e) => dispatch(changeName(e.target.value))}/>
+            <br/>
+            <h2>{name}</h2>
+
         </>
     )
 }
