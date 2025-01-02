@@ -1,29 +1,20 @@
-import  {useReducer} from "react";
-import "./App.css";
-
+import './App.css'
+import {useDispatch, useSelector} from "react-redux";
 
 function App() {
 
-    const reducer =(state:number,action:string)=>{
-        switch (action){
-            case "INCREMENT":
-                return state + 1;
-            case "DECREMENT":
-                return state -1;
-            default:
-                return state;
-        }
-    }
-
-    const [count,dispath] =useReducer(reducer,0)
+    const count = useSelector(state => state);
+    const dispatch = useDispatch();
 
     return (
-        <div>
-            <h1>Count :{count}</h1>
-            <button className="buttonStyle" onClick={()=>dispath("INCREMENT")}>Increment</button>
-            <button className="buttonStyle" onClick={() =>dispath("DECREMENT")}>Decrement</button>
-        </div>
-    );
-};
+        <>
+            {count}
+            <br/>
+            <button className="buttonStyle" onClick={() => dispatch({ type:'INCREMENT'})}>Increment</button>
+            <button className="buttonStyle" onClick={() => dispatch({ type:'DECREMENT'})}>Decrement</button>
+            <button className="buttonStyle" onClick={() => dispatch({ type:''})}>Select</button>
+        </>
+    )
+}
 
-export default App;
+export default App
